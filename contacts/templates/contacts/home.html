@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'css/home.css' %}">
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="main">
+            <div class="head-main">
+                <h2 class="title">ContactME</h2>
+                <div class="header">
+                    <a href="{% url 'add-contact' %}"><h4>add</h4></a>
+                    <form action="{% url 'search-contact' %}" method="get">
+                        <input name="search" type="text" placeholder="search contact">
+                        <button type="submit">search</button>
+                    </form> 
+                </div>
+                
+            </div>
+            <div class="contact-list">
+                {% for  contact in contacts %}
+                <div class="contact-container">
+                    <div class="contact-about">
+                        <a href="{% url 'about-contact' contact.id  %}">
+                            <h3>{{ contact.first_name}}</h3>
+                            <p class="num">{{ contact.number}}</p>
+                        </a>
+                    </div>
+                    <p class="call">call</p>
+                </div>
+                {%endfor%}    
+            </div>
+        </div>
+
+</body>
+</html>

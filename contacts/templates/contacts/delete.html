@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+    <title>Delete</title>
+</head>
+<body>
+
+    <div class="main">
+        <div class="header">
+            <div class="inner-header">
+                <a href="{% url 'index' %}"> << back</a>
+                <div class="about-head">
+                <h3>{{ contact.first_name}} {{ contact.last_name}}</h3>
+                </div>
+            </div>
+        </div><br>
+        
+        
+        <form action="" method="POST">
+            <p style="margin: 10px; color: red;">you are about to delete {{ contact.first_name }} from your contact list</p>
+            {% csrf_token %}
+            <button style="text-align: center; width: 100px; height: 30px; border-radius: 10px; background-color:rgb(235, 155, 159); margin: 10px ; cursor: pointer;" type="submit">DELETE</button>
+        </form>
+        
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
