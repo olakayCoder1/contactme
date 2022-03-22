@@ -48,8 +48,7 @@ def edit_contact(request, id):
         contact.relationship = request.POST.get('relationship')
         contact.address = request.POST.get('address')
         contact.save()
-        return redirect('/')
-     #   return redirect('contact/about/'+str(contact.id))
+        return redirect('contact/about/'+str(contact.id))
     context = { 'contact': contact}
 
     return render(request, 'contacts/edit.html', context)
